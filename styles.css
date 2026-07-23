@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 20px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.top-nav {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 1fr; /* Retains asymmetric navigation alignment */
+  align-items: start;
+  margin-bottom: 25px;
+}
+
+.nav-item {
+  font-weight: 500;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 2fr 4fr; 
+  gap: 20px;
+}
+
+.featured-image-box {
+  grid-column: 1 / 2;
+}
+
+.featured-image {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  display: block;
+}
+
+.caption {
+  font-size: 10px;
+  color: #666666;
+  margin-top: 8px;
+}
+
+.links-section {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  margin-top: 100px; 
+  gap: 20px;
+}
+
+.gallery-masonry {
+  grid-column: 1 / -1;
+  column-count: 3;          /* Spreads images into 3 fluid vertical columns */
+  column-gap: 20px;         /* Spacing between image columns */
+  margin-top: 100px;
+}
+
+.links-column h3 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.links-column p {
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.offset-column {
+  margin-top: 36px; 
+}
+
+.gallery-thumb {
+  width: 100%;
+  height: auto;
+  display: block;           /* Completely kills the baseline typographic white gap */
+}
+
+.gallery-row {
+  display: inline-block;    /* Essential: Prevents images from splitting across columns */
+  width: 100%;              /* Forces block to fill its column track horizontal size */
+  margin-bottom: 20px;      /* Controls the fluid vertical gap beneath each image */
+}
+
+@media (max-width: 768px) {
+  
+  body {
+    padding: 15px; /* Slight padding reduction to preserve precious screen width */
+  }
+
+  /* Stack navigation items in an organized grid pair on small displays */
+  .top-nav {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 12px;
+    margin-bottom: 35px;
+  }
+  
+  .text-right {
+    text-align: left; /* Pulls links aligned left on mobile so text flows easily */
+  }
+
+  /* Forces main container content (the top photo layout block) to stack vertically */
+  .main-container {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .featured-image {
+    max-width: 100%; /* Allows your header photo to fill mobile screens cleanly */
+  }
+
+  /* Stacks text paragraphs (About page / links page layout) */
+  .links-section {
+    grid-template-columns: 1fr;
+    margin-top: 50px; /* Reduces excessive whitespace scrolling on phones */
+    gap: 30px;        /* Increases room between separate copy block stacks */
+  }
+
+  /* Removes the desktop offset gaps so mobile sentences align neatly flush */
+  .offset-column {
+    margin-top: 0; 
+  }
+
+  /* Adjusts the design showcase gallery into 2 fluid tracks for mobile viewing */
+  .gallery-masonry {
+    column-count: 2;   
+    column-gap: 15px;
+    margin-top: 50px;
+  }
+
+  .gallery-row {
+    margin-bottom: 15px; /* Tighter image track gaps suited for scrolling views */
+  }
+}
+
+/* Optional further reduction targeting very thin phone displays (under 480px) */
+@media (max-width: 480px) {
+  .gallery-masonry {
+    column-count: 1; /* Drops to a single clean portrait presentation view */
+  }
+}
+
